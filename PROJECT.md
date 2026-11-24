@@ -99,3 +99,52 @@ a validated measure of trust or appropriate reliance.
 The interaction design is documented in INTERACTION.md.
 
 Implementation and functional testing are pending.
+
+
+### 24 November 2026 - Prototype Implementation and Testing
+
+The initial design documents were committed
+to the local Git repository as commit 225fbcf.
+
+The prototype was implemented using HTML,
+CSS and JavaScript.
+
+Five application files were created:
+
+- index.html
+- styles.css
+- data.js
+- logic.js
+- app.js
+
+The data layer and verification logic were
+tested using the browser Console.
+
+All three interaction modes were manually
+tested. A complete Mode C session was
+documented through screenshots.
+
+The Mode C summary was checked against
+the six individual case decisions and
+returned consistent results.
+
+During testing, two potential usability
+issues were identified:
+
+1. Additional scrolling between case
+   content and policy evidence.
+
+2. The distinction between selecting
+   policy rules and formally completing
+   verification.
+
+These observations informed the next
+stage of interface refinement.
+
+Detailed testing results and limitations
+are documented in TESTING.md.
+
+Generative AI assisted with code generation
+and debugging guidance, while the developer
+performed the local implementation and
+functional checks.

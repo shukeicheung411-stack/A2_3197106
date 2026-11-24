@@ -1,0 +1,437 @@
+/* 1. Global design variables */
+
+:root {
+    --primary: #244d76;
+    --primary-dark: #172b45;
+    --background: #f1f5f9;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #526174;
+    --border: #d4dce5;
+    --warning: #80520b;
+    --warning-bg: #fff8e8;
+    --success: #166534;
+    --success-bg: #ecfdf3;
+}
+
+/* 2. Global layout */
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 24px 32px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 4px 0 0;
+    color: #c6d5e5;
+    font-size: 14px;
+}
+
+main {
+    max-width: 1120px;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 3. Typography */
+
+h2 {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 19px;
+}
+
+h4 {
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+p {
+    margin-top: 6px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+}
+
+/* 4. Buttons and interaction states */
+
+button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 20px;
+    min-height: 44px;
+    border: 1px solid var(--primary);
+    border-radius: 7px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    background: #e2e8f0;
+    color: #64748b;
+    border-color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+/* 5. Welcome and mode selection */
+
+#welcome-screen,
+#mode-screen,
+#summary-screen {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+#welcome-screen h3 {
+    margin-top: 24px;
+}
+
+#start-button {
+    margin-top: 16px;
+}
+
+#mode-screen button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+    padding: 18px;
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--border);
+}
+
+#mode-screen button:hover {
+    background: #eaf1f8;
+    border-color: var(--primary);
+}
+
+#mode-screen p {
+    color: var(--muted);
+    padding: 0 6px;
+}
+
+/* 6. Moderation workspace */
+
+#review-screen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#review-screen > h2,
+#current-mode,
+#case-progress,
+#verification-panel,
+#policy-panel,
+#decision-panel,
+#feedback-panel {
+    grid-column: 1 / -1;
+}
+
+#review-screen > h2 {
+    margin-bottom: 0;
+}
+
+#current-mode,
+#case-progress {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#content-panel,
+#ai-panel,
+#verification-panel,
+#policy-panel,
+#decision-panel,
+#feedback-panel {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+/* 7. Content presentation */
+
+#original-post {
+    padding: 14px;
+    background: #f8fafc;
+    border-radius: 6px;
+}
+
+#review-comment {
+    padding: 16px;
+    border-left: 4px solid var(--primary);
+    background: #edf3f9;
+    border-radius: 4px;
+}
+
+/* 8. AI assessment */
+
+#ai-panel > p:first-of-type {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#ai-recommendation {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+#ai-confidence {
+    display: inline-block;
+    padding: 4px 12px;
+    font-weight: 600;
+    background: #edf2f7;
+    border-radius: 5px;
+}
+
+#ai-confidence[data-level="Low"] {
+    color: var(--warning);
+    background: var(--warning-bg);
+}
+
+#ai-confidence[data-level="High"] {
+    color: var(--text);
+    background: #edf2f7;
+}
+
+/* 9. Verification and policy */
+
+#verification-panel[data-status="required"] {
+    background: var(--warning-bg);
+    border-color: #d6aa58;
+}
+
+#verification-panel[data-status="completed"] {
+    background: var(--success-bg);
+    border-color: #86b99a;
+}
+
+#verification-status {
+    font-weight: 600;
+}
+
+#policy-button,
+#edit-rules-button {
+    background: white;
+    color: var(--primary);
+}
+
+#policy-button:hover,
+#edit-rules-button:hover {
+    background: #eaf1f8;
+}
+
+#edit-rules-button:disabled {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+#policy-rules label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 14px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#policy-rules input {
+    margin-right: 10px;
+    accent-color: var(--primary);
+}
+
+#policy-sources {
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+#policy-sources a {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* 10. Human decision */
+
+#keep-button,
+#remove-button {
+    width: calc(50% - 6px);
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+#keep-button[aria-pressed="true"],
+#remove-button[aria-pressed="true"] {
+    background: var(--primary);
+    color: white;
+}
+
+#keep-button:hover:not(:disabled),
+#remove-button:hover:not(:disabled) {
+    background: #eaf1f8;
+    color: var(--primary-dark);
+}
+
+#keep-button:disabled,
+#remove-button:disabled {
+    background: #e2e8f0;
+    color: #64748b;
+    border-color: #cbd5e1;
+}
+
+#decision-status {
+    min-height: 24px;
+    margin: 12px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#submit-button {
+    width: 100%;
+}
+
+/* 11. Feedback and session summary */
+
+#feedback-content,
+#summary-content {
+    line-height: 1.8;
+}
+
+#feedback-content[data-match="true"] {
+    border-left: 4px solid var(--success);
+    padding-left: 16px;
+}
+
+#feedback-content[data-match="false"] {
+    border-left: 4px solid var(--warning);
+    padding-left: 16px;
+}
+
+#next-button,
+#restart-button {
+    margin-top: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background: #edf2f7;
+}
+
+/* 12. Responsive layout */
+
+@media (max-width: 700px) {
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 0 14px;
+    }
+
+    #review-screen {
+        grid-template-columns: 1fr;
+    }
+
+    #welcome-screen,
+    #mode-screen,
+    #summary-screen,
+    #content-panel,
+    #ai-panel,
+    #verification-panel,
+    #policy-panel,
+    #decision-panel,
+    #feedback-panel {
+        padding: 20px;
+    }
+
+    #case-results {
+        overflow-x: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none;
+    }
+}

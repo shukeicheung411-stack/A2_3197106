@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>AI-assisted Moderation</title>
+    <link rel="stylesheet" href="styles.css">
+   <script src="data.js" defer></script>
+   <script src="logic.js" defer></script>
+   <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>AI-assisted Moderation</h1>
+        <p>Human-AI Decision-Making Prototype</p>
+    </header>
+
+    <main>
+
+        <!-- Screen 01: Welcome -->
+        <section id="welcome-screen">
+
+            <h2>Welcome</h2>
+
+            <p>
+                This prototype explores how AI explanations
+                and verification prompts can support human
+                decision-making in social media moderation.
+            </p>
+
+            <h3>Your task</h3>
+
+            <p>
+                Review social media comments and decide
+                whether to KEEP or REMOVE them according
+                to the moderation policy.
+            </p>
+
+            <h3>Important information</h3>
+
+            <ul>
+                <li>AI recommendations are simulated.</li>
+                <li>AI confidence levels are simulated.</li>
+                <li>AI recommendations may be incorrect.</li>
+                <li>You retain the final decision.</li>
+                <li>No real content will be removed.</li>
+            </ul>
+
+            <button id="start-button" type="button">
+                Get Started
+            </button>
+
+        </section>
+
+        <!-- Screen 02: Mode Selection -->
+        <section id="mode-screen" hidden>
+
+            <h2>Select an Interaction Mode</h2>
+
+            <button id="mode-a" type="button">
+                Mode A - Explanation Only
+            </button>
+            <p>Policy verification is optional.</p>
+
+            <button id="mode-b" type="button">
+                Mode B - Mandatory Verification
+            </button>
+            <p>Policy verification is required for every case.</p>
+
+            <button id="mode-c" type="button">
+                Mode C - Selective Verification
+            </button>
+            <p>
+                Verification is required when simulated
+                AI confidence is low.
+            </p>
+
+        </section>
+
+        <!-- Screen 03: Moderation Workspace -->
+        <section id="review-screen" hidden>
+
+            <h2>Moderation Workspace</h2>
+
+            <p id="current-mode"></p>
+            <p id="case-progress"></p>
+
+            <!-- Area 01: Content -->
+            <section id="content-panel">
+
+                <h3>Content Under Review</h3>
+
+                <h4>Original Post</h4>
+                <p id="original-post"></p>
+
+                <h4>Comment Under Review</h4>
+                <p id="review-comment"></p>
+
+            </section>
+
+            <!-- Area 02: AI Assessment -->
+            <section id="ai-panel">
+
+                <h3>AI Assessment</h3>
+
+                <p>Simulated AI output</p>
+
+                <h4>Recommendation</h4>
+                <p id="ai-recommendation"></p>
+
+                <h4>Confidence</h4>
+                <p id="ai-confidence"></p>
+
+                <h4>Explanation</h4>
+                <p id="ai-explanation"></p>
+
+            </section>
+
+            <!-- Area 03: Verification Prompt -->
+            <section id="verification-panel">
+
+                <h3>Verification</h3>
+                <p id="verification-status"
+                   aria-live="polite"></p>
+
+                <button id="policy-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="policy-panel">
+                    Review Moderation Policy
+                </button>
+
+            </section>
+
+            <!-- Area 04: Policy Evidence -->
+            <section id="policy-panel" hidden>
+
+                <h3>Moderation Policy</h3>
+
+                <p>
+                    Select one or more relevant rules,
+                    or select Not sure.
+                </p>
+
+                <div id="policy-rules"></div>
+
+                <div id="policy-sources"></div>
+
+                <button id="verify-button"
+                        type="button" disabled>
+                    Complete Verification
+                </button>
+
+                <button id="edit-rules-button"
+                        type="button" hidden>
+                    Edit Selected Rules
+                </button>
+
+            </section>
+
+            <!-- Area 05: Human Decision -->
+            <section id="decision-panel">
+
+                <h3>Your Final Decision</h3>
+
+                <button id="keep-button"
+                        type="button" aria-pressed="false" disabled>
+                    KEEP
+                </button>
+
+                <button id="remove-button"
+                        type="button" aria-pressed="false" disabled>
+                    REMOVE
+                </button>
+
+                <p id="decision-status"
+                   aria-live="polite"></p>
+
+                <button id="submit-button"
+                        type="button" disabled>
+                    Submit Decision
+                </button>
+
+            </section>
+
+            <!-- Area 06: Decision Feedback -->
+            <section id="feedback-panel" hidden>
+
+                <h3>Decision Feedback</h3>
+
+                <div id="feedback-content"
+                     aria-live="polite"></div>
+
+                <button id="next-button" type="button">
+                    Next Case
+                </button>
+
+            </section>
+
+        </section>
+
+        <!-- Screen 04: Session Summary -->
+        <section id="summary-screen" hidden>
+
+            <h2>Session Summary</h2>
+
+            <div id="summary-content"></div>
+
+            <h3>Individual Case Results</h3>
+
+            <div id="case-results"></div>
+
+            <button id="restart-button" type="button">
+                Start a New Session
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Educational prototype -
+            Simulated AI-assisted moderation.
+        </p>
+    </footer>
+
+</body>
+</html>
