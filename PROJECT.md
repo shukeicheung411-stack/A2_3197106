@@ -148,3 +148,37 @@ Generative AI assisted with code generation
 and debugging guidance, while the developer
 performed the local implementation and
 functional checks.
+
+### 24 November 2026 - Design Iteration
+
+The first working prototype and functional
+testing documentation were committed as 5dbe9f9.
+
+Two interface refinements were introduced
+following observations from functional testing.
+
+The first refinement improved the visibility
+of verification states through dynamic
+textual and visual feedback.
+
+The second refinement introduced a responsive
+policy layout and an expandable case context
+section to improve access to information
+during verification.
+
+These changes were informed by HCI principles
+relating to system feedback, attention,
+working memory and recognition rather than recall.
+
+The main interaction problem, six moderation
+cases, three interaction modes and core
+verification requirements remained unchanged.
+
+The revised interface was inspected through
+manual browser testing.
+
+Detailed observations and testing limitations
+are recorded in TESTING.md.
+
+Generative AI assisted with the implementation
+of the interface refinements.

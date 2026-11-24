@@ -116,6 +116,34 @@ function loadCase() {
     setText("ai-confidence", item.confidence);
     setText("ai-explanation", item.aiExplanation);
 
+        /* Case context available during policy verification */
+
+    setText(
+        "context-original-post",
+        item.originalPost
+    );
+
+    setText(
+        "context-comment",
+        item.comment
+    );
+
+    setText(
+        "context-ai-recommendation",
+        item.aiRecommendation +
+        " | Simulated confidence: " +
+        item.confidence
+    );
+
+    setText(
+        "context-ai-explanation",
+        item.aiExplanation
+    );
+
+    byId("policy-case-context").open = false;
+
+
+
     byId("ai-confidence").dataset.level =
         item.confidence;
 
@@ -408,6 +436,48 @@ function updateControls() {
             "verification-status",
             "Verification optional. You may review the policy before deciding."
         );
+    }
+
+        /* Verification selection feedback */
+
+    const selectionStatus =
+        byId("verification-selection-status");
+
+    selectionStatus.dataset.status = "idle";
+
+    if (state.verificationCompleted) {
+
+        selectionStatus.textContent =
+            "Verification completed.";
+
+        selectionStatus.dataset.status = "completed";
+
+    } else if (state.submitted) {
+
+        selectionStatus.textContent =
+            "Verification was not completed before submission.";
+
+    } else if (state.selectedRules.length === 0) {
+
+        selectionStatus.textContent =
+            "Select relevant rules or choose Not sure.";
+
+    } else {
+
+        const selectionText =
+            state.selectedRules.includes("Unsure")
+                ? "Not sure selected"
+                : state.selectedRules.length +
+                  (state.selectedRules.length === 1
+                      ? " rule selected"
+                      : " rules selected");
+
+        selectionStatus.textContent =
+            selectionText +
+            " - Verification not completed. " +
+            "Click Complete Verification to confirm your selection.";
+
+        selectionStatus.dataset.status = "pending";
     }
 
     /* Synchronise rule checkboxes */

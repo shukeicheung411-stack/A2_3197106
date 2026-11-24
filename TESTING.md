@@ -308,3 +308,99 @@ and proposed improvements.
 The documented observations should not
 be interpreted as independently validated
 research findings.
+
+## 12. Design Iteration and Regression Testing
+
+### Iteration 01 - Verification State Feedback
+
+Problem identified:
+
+During the C04 test, policy rules were selected
+but verification was not recorded as completed.
+
+Design change:
+
+A dynamic status message was added to distinguish
+rule selection from verification completion.
+
+The interface now provides textual and visual
+feedback about the current verification state
+and the next available action.
+
+Files modified:
+
+- index.html
+- app.js
+- styles.css
+
+Observed results:
+
+- Selecting R02 displayed the selected rule count.
+- Incomplete verification displayed an amber message.
+- Completed verification displayed a green message.
+- The Edit Selected Rules button remained available.
+- Final decision buttons were unlocked after
+  completing mandatory verification.
+
+These states were checked through browser screenshots.
+
+### Iteration 02 - Information Accessibility
+
+Problem identified:
+
+The original vertical policy layout required
+additional scrolling between case information
+and moderation policy evidence.
+
+Design change:
+
+A responsive two-column policy layout was added
+for wider browser windows.
+
+An expandable Review Case Context section was
+introduced within the policy panel.
+
+This section provides access to:
+
+- Original post.
+- Comment under review.
+- Simulated AI recommendation and confidence.
+- Simulated AI explanation.
+
+Files modified:
+
+- index.html
+- app.js
+- styles.css
+
+Observed results:
+
+- The two-column policy layout was displayed.
+- The Not sure option occupied a separate row.
+- The case context section was displayed.
+- The verification status feedback remained visible.
+- Existing policy source links remained visible.
+
+The revised interface was inspected through
+a browser screenshot and developer-led testing.
+
+The screenshot shows the collapsed context section.
+Expanded content and case transitions were not
+independently verified through screenshots.
+
+### Interpretation and Limitations
+
+The changes were informed by developer testing
+and HCI principles relating to feedback,
+attention, working memory and recognition
+rather than recall.
+
+The intended benefit is to reduce unnecessary
+information-seeking effort and improve the
+visibility of verification states.
+
+No formal usability study was conducted.
+
+The changes do not establish a measured reduction
+in cognitive effort or an improvement in trust
+or decision accuracy.
