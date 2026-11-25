@@ -92,8 +92,7 @@ actual platform enforcement actions.
 
 ## 5. Reference Decisions
 
-Each moderation case will have a predefined reference
-decision supported by the adapted rules.
+Each moderation case has a predefined reference decision supported by the adapted rules.
 
 Reference decisions are specific to this prototype
 and are not independently validated ground truth.

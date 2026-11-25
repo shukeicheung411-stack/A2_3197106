@@ -299,7 +299,10 @@ Voluntary verification therefore remains available.
 
 ## 12. Implementation Status
 
-The interaction described in this document is planned.
+The interaction described in this document has been implemented in the browser-based prototype.
 
-Implementation and functional testing will be
-documented during the development stage.
+All three interaction modes, policy selection, verification controls, human decision-making, feedback and session summaries are functional.
+
+AI recommendations, explanations and confidence labels remain simulated.
+
+Functional testing and subsequent design refinements are documented in TESTING.md.

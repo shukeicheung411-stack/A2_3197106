@@ -36,8 +36,13 @@ Require verification when a predefined uncertainty condition is met. Allow volun
 
 ## 4. Outstanding Design Decisions
 
-- Moderation scenarios and example content.
-- Moderation rules and reference decisions.
-- Detailed verification interaction.
-- Uncertainty representation and triggering conditions.
-- Technical implementation.
+- Six synthetic moderation cases covering ethnicity, gender and disability.
+- Five adapted moderation rules and predefined reference decisions.
+- Policy-based verification with editable rule selections.
+- Simulated High and Low confidence labels.
+- Three verification modes with deterministic triggering conditions.
+- A client-side prototype implemented using HTML, CSS and JavaScript.
+
+Live AI inference, calibrated confidence, real platform integration and formal user evaluation remain outside the current implementation scope.
+
+See ARCHITECTURE.md and TESTING.md for implementation details and functional testing evidence.

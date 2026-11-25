@@ -167,13 +167,15 @@ Detailed observations, checks and limitations are recorded in [TESTING.md](TESTI
 
 ## 9. AI Assistance and Authorship
 
-ChatGPT assisted with design exploration, code generation, debugging, documentation and visual illustrations. AI-assisted materials include the prototype code, system architecture diagram and fictional storyboards.
+I led the project development, defining its scope, selecting identity categories, making interaction design decisions and testing the prototype.
 
-I selected the project scope, chose the three identity categories and requested that the moderation rules be based on existing platform policies. I created and modified the local project files, performed manual functional testing and maintained the Git development history.
+ChatGPT supported design exploration, case and policy drafting, code generation, debugging, documentation, report outlining and drafting, language revision, and visual illustrations.
 
-For example, I checked the Mode C summary against the six case results and reviewed the revised verification feedback in the browser. I provided prototype screenshots and reviewed the storyboard scenarios against the implemented interaction paths.
+I reviewed alternative proposals, created and modified the local project files, performed functional testing and maintained the Git development history.
 
-The moderation rules were adapted from external policy sources documented in [POLICY.md](POLICY.md). The prototype uses predefined simulated AI outputs rather than a live AI service. The test walkthroughs were developer checks, not independent participant evaluations.
+For example, I checked the Mode C summary against individual case results and reviewed the revised verification feedback in the browser. When the C02 and C04 storyboards contained unsupported details, I supplied actual prototype screenshots and requested corrections.
+
+The moderation rules were adapted from external sources documented in POLICY.md. The AI outputs are simulated, and the walkthroughs represent developer-led checks rather than independent user evaluation.
 
 ## 10. Limitations
 
