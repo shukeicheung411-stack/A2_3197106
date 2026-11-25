@@ -2,120 +2,274 @@
 
 ## 1. Technology Stack
 
-The prototype is designed as a lightweight
-browser-based interactive system.
+The implemented prototype is a lightweight,
+client-side interactive system.
 
-- HTML: interface structure.
-- CSS: visual layout and interaction states.
-- JavaScript: interaction control and decision logic.
-- Structured JavaScript data: cases and moderation rules.
-- Git and GitHub: version control and development evidence.
+- HTML: interface structure and semantic elements.
+- CSS: responsive layout and visual feedback.
+- Vanilla JavaScript: interaction control,
+  state management and decision logic.
+- Structured JavaScript data: synthetic cases,
+  simulated AI outputs and moderation rules.
+- Git: version control and development evidence.
 
-No backend server, database or external AI API
-is required for the initial prototype.
+The prototype runs locally in a web browser
+by opening app/index.html.
+
+No backend server, database, external AI API
+or additional software dependencies are required.
 
 ## 2. System Components
 
+### Human Moderator
+
+Reviews the original post, comment, simulated
+AI assessment and relevant moderation rules.
+
+The moderator retains control over the final
+KEEP or REMOVE decision.
+
 ### User Interface
 
-Presents the welcome screen, mode selection,
-moderation workspace and session summary.
+Implemented in index.html and styles.css.
+
+Provides four main screens:
+
+- Welcome
+- Mode Selection
+- Moderation Workspace
+- Session Summary
+
+The interface presents case information,
+AI explanations, verification requirements,
+decision controls and outcome feedback.
 
 ### Case and Policy Data
 
-Stores the six predefined moderation cases,
-simulated AI outputs, confidence labels,
-reference decisions and moderation rules.
+Implemented in data.js.
+
+Contains:
+
+- Six synthetic moderation cases.
+- Five adapted moderation rules.
+- Three external policy source links.
+- Predefined AI recommendations and explanations.
+- Simulated High and Low confidence labels.
+- Predefined reference decisions and rationales.
+
+The AI outputs are fixed simulation data,
+not results of live model inference.
 
 ### Interaction Controller
 
-Manages the current screen, interaction mode,
-case progress, user actions and interface updates.
+Implemented in app.js.
 
-### Verification Logic
+Manages user events, screen transitions,
+case progression, policy selection,
+verification status, decision submission
+and interface rendering.
 
-Determines whether policy verification is required
-based on the interaction mode and simulated confidence.
+It coordinates data, session state
+and decision logic.
 
-### Decision Logic
+### Verification and Decision Logic
 
-Compares the submitted user decision with the
-AI recommendation and predefined reference decision.
+Implemented in logic.js.
 
-### Session State
+The main functions are:
 
-Stores verification activity, selected rules,
-submitted decisions and outcome categories
-within the current browser session.
+- requiresVerification()
+- isValidVerification()
+- isDecisionAvailable()
+- canSubmitDecision()
+- getDecisionOutcome()
+- calculateSessionSummary()
+
+The controller passes the required values
+to these functions as arguments.
+
+The logic functions do not directly access
+or modify the session state.
+
+The verification validation function directly
+reads POLICY_RULES from data.js to check
+whether selected rule identifiers are valid.
+
+### In-memory Session State
+
+Managed within app.js.
+
+Stores:
+
+- Selected interaction mode.
+- Current case index.
+- Selected moderation rules.
+- Verification completion status.
+- Current user decision.
+- Submission status.
+- Completed case records.
+
+Session data is temporary and is not stored
+in a persistent database.
+
+### External Policy Sources
+
+The interface provides links to policy
+information from Reddit, Meta and X.
+
+These websites are available for voluntary
+human consultation.
+
+The system does not automatically retrieve,
+analyse or process external policy content.
 
 ## 3. Information and Control Flow
 
-1. The user selects an interaction mode.
-2. The controller loads the current case.
-3. The verification logic evaluates the mode
-   and simulated confidence.
-4. The interface displays the case and AI assessment.
-5. The user completes verification if required.
-6. The user submits a final moderation decision.
-7. The decision logic determines the outcome.
-8. The controller displays feedback and stores
-   the decision record.
-9. The next case is loaded or the session summary
-   is displayed.
+1. The moderator selects an interaction mode.
+2. The controller loads a predefined case.
+3. The controller passes the mode and simulated
+   confidence to the verification logic.
+4. The logic returns the verification requirement.
+5. The interface displays the case, simulated
+   AI assessment and available actions.
+6. The moderator reviews the policy voluntarily
+   or completes verification when required.
+7. The controller validates the selected rules
+   and updates the interaction state.
+8. The moderator selects and submits a final
+   KEEP or REMOVE decision.
+9. The decision logic compares the user decision,
+   AI recommendation and reference decision.
+10. The controller stores the record and
+    displays decision feedback.
+11. The next case is loaded or the final
+    session summary is displayed.
 
-## 4. Planned File Structure
+User actions and visible system feedback
+form a continuous interaction loop.
+
+The reference decision is not used to trigger
+verification or determine which final decision
+the moderator is allowed to select.
+
+## 4. Implemented File Structure
 
 | File | Responsibility |
 |---|---|
 | app/index.html | Interface structure |
-| app/styles.css | Visual presentation |
-| app/data.js | Case and policy data |
+| app/styles.css | Responsive layout and feedback |
+| app/data.js | Case data and moderation policy |
 | app/logic.js | Verification and decision logic |
-| app/app.js | Interaction control and rendering |
+| app/app.js | Interaction control and session state |
+
+The JavaScript files are loaded in this order:
+
+1. data.js
+2. logic.js
+3. app.js
+
+This loading sequence makes the predefined data
+and decision functions available to the controller.
 
 ## 5. Intelligent Behaviour
 
-The AI recommendations, explanations and confidence
-levels are predefined simulations.
+The implemented adaptive behaviour is based
+on deterministic verification rules.
 
-The system uses deterministic rules to adapt
-verification requirements to the selected mode
-and simulated uncertainty.
+| Interaction mode | High confidence | Low confidence |
+|---|---|---|
+| Mode A - Explanation Only | Optional | Optional |
+| Mode B - Mandatory Verification | Required | Required |
+| Mode C - Selective Verification | Optional | Required |
 
-The verification logic does not use the reference
-decision to determine whether verification is required.
+When verification is mandatory, the final
+decision controls remain unavailable until
+verification is completed.
 
-No live AI inference or model training is performed.
+The moderator may select relevant policy rules
+or indicate uncertainty using Not sure.
+
+All three modes retain voluntary access
+to the moderation policy.
+
+Verification completion confirms completion
+of the interaction step, not the correctness
+of the selected rules.
+
+High simulated confidence does not guarantee
+a correct AI recommendation.
+
+The intelligent behaviour is therefore
+rule-based interaction adaptation, rather
+than autonomous content classification.
 
 ## 6. Technical Design Rationale
 
-A client-side architecture was selected to reduce
-implementation complexity and focus development
-on the human-AI interaction.
+A client-side architecture was selected
+to reduce implementation complexity and
+focus development on human-AI interaction.
 
-Separating data, decision logic and interface control
-supports maintainability and functional testing.
+Separating data, decision logic and interface
+control supports maintainability, inspection
+and functional testing.
 
-Using predefined AI outputs allows consistent
-demonstration of correct and incorrect recommendations.
+Predefined AI outputs allow consistent
+demonstration of both correct and incorrect
+recommendations across interaction modes.
 
-The same cases can be presented under different
-verification conditions.
+The responsive policy layout, expandable
+case context and dynamic verification
+feedback were introduced during design
+iteration.
+
+These refinements were intended to improve
+information accessibility and the visibility
+of system states.
+
+The architecture supports human control
+rather than automatic acceptance of AI advice.
 
 ## 7. Technical Limitations
 
-- No live moderation model is connected.
-- Confidence labels are simulated.
-- Reference answers are stored on the client.
+- No live AI moderation model is connected.
+- AI confidence labels are simulated and
+  are not calibrated model probabilities.
+- All six cases are predefined synthetic examples.
+- Reference decisions have not been
+  independently validated.
 - Reference answers are hidden by the interface,
-  not protected by server-side access control.
-- Session records are stored in browser memory
-  and are lost when the page is reloaded.
-- No real platform enforcement is performed.
+  not protected through server-side access control.
+- Verification completion does not establish
+  that a moderator has understood the policy.
+- Session records are stored in memory and
+  are cleared when the page is reloaded
+  or a new session is started.
+- No real social media content is removed.
+- Session records do not directly measure trust
+  or cognitive effort.
 
 ## 8. Implementation Status
 
-This document describes the planned architecture.
+The browser-based prototype implements
+the three interaction modes, policy review,
+verification controls, human decision-making,
+outcome feedback and session summaries.
 
-The components and their behaviour will be checked
-during implementation and functional testing.
+The AI recommendations, explanations
+and confidence levels remain simulated.
+
+Functional testing and design iteration
+are documented in TESTING.md.
+
+The final architecture diagram represents
+the implemented system rather than
+a proposed future architecture.
+
+![System Architecture](diagrams/system-architecture.png)
+
+The editable vector version is available at:
+
+[System Architecture - SVG](diagrams/system-architecture.svg)
+
+The initial architecture design remains
+available in the Git development history.

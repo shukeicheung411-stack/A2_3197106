@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040" role="img" aria-labelledby="title desc">
+<title id="title">System architecture — AI-assisted moderation prototype</title><desc id="desc">Browser-only prototype. Human actions and feedback, controller-managed session state, deterministic verification and decision logic, static simulated AI data, and optional external policy links. Logic receives arguments from controller and directly reads policy rules for selection validation.</desc>
+<defs><marker id="ctrl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#355779"/></marker><marker id="info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#98651a"/></marker></defs>
+<rect x="0" y="0" width="1500" height="1040" rx="0" fill="white" stroke="none" stroke-width="2"/>
+<text x="40" y="45" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#172b45" text-anchor="start">System architecture</text>
+<text x="1460" y="45" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#526174" text-anchor="end">AI-assisted moderation prototype</text>
+<rect x="480" y="75" width="540" height="80" rx="10" fill="#172b45" stroke="none" stroke-width="2"/>
+<text x="750" y="108" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="white" text-anchor="middle">Human moderator</text>
+<text x="750" y="136" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#e0eaf5" text-anchor="middle">Retains final KEEP / REMOVE authority</text>
+<rect x="1135" y="75" width="325" height="80" rx="10" fill="#f1f5f9" stroke="#9cacc0" stroke-width="2"/>
+<text x="1297" y="108" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#172b45" text-anchor="middle">External policy websites</text>
+<text x="1297" y="135" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#172b45" text-anchor="middle">Reddit · Meta · X</text>
+<rect x="40" y="220" width="1420" height="740" rx="16" fill="#f8fafc" stroke="#8da2b8" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="62" y="247" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#355779" text-anchor="start">CLIENT-SIDE WEB BROWSER</text>
+<text x="1250" y="247" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="end">HTML / CSS / Vanilla JavaScript</text>
+<rect x="380" y="270" width="740" height="110" rx="10" fill="#eaf1f8" stroke="#7898b9" stroke-width="2"/>
+<text x="750" y="301" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172b45" text-anchor="middle">User interface</text>
+<text x="750" y="328" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#355779" text-anchor="middle">index.html + styles.css</text>
+<text x="750" y="354" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#172b45" text-anchor="middle">Mode selection · Case / policy review · Decisions · Feedback · Summary</text>
+<path d="M620 155V270" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="604" y="192" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="end">User actions</text>
+<path d="M880 270V155" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="896" y="192" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="start">Visible feedback</text>
+<path d="M1120 312H1300V155" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="1286" y="183" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#355779" text-anchor="end">Optional link opening</text>
+<text x="1286" y="204" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#526174" text-anchor="end">No automated retrieval</text>
+<rect x="470" y="450" width="560" height="112" rx="10" fill="#244d76" stroke="none" stroke-width="2"/>
+<text x="750" y="483" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="white" text-anchor="middle">Interaction controller</text>
+<text x="750" y="510" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#dceaf8" text-anchor="middle">app.js</text>
+<text x="750" y="537" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="white" text-anchor="middle">Events · Case loading · Submission · Rendering</text>
+<path d="M620 380V450" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="604" y="416" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="end">UI events</text>
+<path d="M880 450V380" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="896" y="416" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="start">DOM updates</text>
+<rect x="65" y="680" width="400" height="210" rx="10" fill="#fff8e8" stroke="#c39b53" stroke-width="2"/>
+<text x="85" y="712" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172b45" text-anchor="start">Case and policy data</text>
+<text x="85" y="738" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#355779" text-anchor="start">data.js</text>
+<text x="85" y="765" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#172b45" text-anchor="start">6 synthetic cases · 5 rules · 3 source links</text>
+<rect x="85" y="778" width="360" height="68" rx="6" fill="#f8e7bc" stroke="none" stroke-width="2"/>
+<text x="97" y="798" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="start">SIMULATED AI OUTPUTS</text>
+<text x="97" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#80520b" text-anchor="start">Predefined recommendation, explanation,</text>
+<text x="97" y="839" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#80520b" text-anchor="start">confidence — no live inference</text>
+<text x="85" y="872" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#172b45" text-anchor="start">Reference decisions and rationales</text>
+<rect x="515" y="680" width="470" height="210" rx="10" fill="#eaf1f8" stroke="#7898b9" stroke-width="2"/>
+<text x="535" y="712" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172b45" text-anchor="start">In-memory session state</text>
+<text x="535" y="738" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#355779" text-anchor="start">app.js · state object</text>
+<text x="535" y="768" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#172b45" text-anchor="start">Mode, case index, selected rules</text>
+<text x="535" y="795" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#172b45" text-anchor="start">Verification status, decision, submitted flag</text>
+<text x="535" y="822" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#172b45" text-anchor="start">Decision records</text>
+<text x="535" y="869" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#526174" text-anchor="start">Reset on restart or page reload</text>
+<rect x="1035" y="680" width="400" height="210" rx="10" fill="#eaf5ee" stroke="#81ad91" stroke-width="2"/>
+<text x="1055" y="712" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#172b45" text-anchor="start">Verification and decision logic</text>
+<text x="1055" y="738" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#355779" text-anchor="start">logic.js · deterministic rules</text>
+<text x="1055" y="766" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#172b45" text-anchor="start">A: optional · B: always required</text>
+<text x="1055" y="791" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#172b45" text-anchor="start">C: required only if confidence = Low</text>
+<text x="1055" y="816" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#172b45" text-anchor="start">Validate selection · Gate submission</text>
+<text x="1055" y="841" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#172b45" text-anchor="start">Classify outcomes · Calculate summary</text>
+<text x="1055" y="869" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#526174" text-anchor="start">No direct access to session state</text>
+<path d="M245 680V500H470" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="260" y="581" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="start">Cases, simulated AI outputs,</text>
+<text x="260" y="602" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="start">rules and references</text>
+<path d="M625 680V562" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="608" y="625" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="end">Read state</text>
+<path d="M875 562V680" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="891" y="625" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="start">Update state</text>
+<path d="M1030 474H1350V680" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="1235" y="437" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="middle">Function calls (arguments)</text>
+<text x="1235" y="458" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#355779" text-anchor="middle">Mode, confidence, rules, status, decisions, records</text>
+<path d="M1175 680V532H1030" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="1160" y="571" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="end">Return values</text>
+<text x="1160" y="592" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#80520b" text-anchor="end">Eligibility, outcome, summary</text>
+<path d="M245 890V940H1240V890" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="750" y="921" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#80520b" text-anchor="middle">Direct read of POLICY_RULES IDs for selection validation</text>
+<path d="M40 989H85" fill="none" stroke="#355779" stroke-width="3" stroke-linejoin="round" marker-end="url(#ctrl)"/>
+<text x="98" y="995" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#172b45" text-anchor="start">Control / actions</text>
+<path d="M280 989H325" fill="none" stroke="#98651a" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 5" marker-end="url(#info)"/>
+<text x="338" y="995" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#172b45" text-anchor="start">Information / return values</text>
+<text x="1460" y="995" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#355779" text-anchor="end">Static page · Open app/index.html locally</text>
+<text x="40" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#526174" text-anchor="start">No backend, database, live AI inference or real platform enforcement. External websites are not part of the decision logic.</text>
+</svg>
