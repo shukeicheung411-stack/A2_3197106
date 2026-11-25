@@ -5,7 +5,7 @@ Human-AI Decision-Making Prototype
 Intelligent Interactive Systems - A2
 University of Birmingham
 
-Report word count: To be confirmed in the final report.
+README prose word count: 816 words.
 
 ## 1. Project Overview
 
@@ -154,41 +154,26 @@ are fictional, not observations of participants.
 
 | Commit | Development milestone |
 |---|---|
-| 225fbcf | Initial project design and architecture |
-| 5dbe9f9 | Interactive prototype and functional testing |
-| 426c27e | Verification feedback and information accessibility refinements |
-| db289d2 | Interaction storyboards and final architecture |
+| [225fbcf](https://github.com/shukeicheung411-stack/A2_3197106/commit/225fbcf) | Initial project design and architecture |
+| [5dbe9f9](https://github.com/shukeicheung411-stack/A2_3197106/commit/5dbe9f9) | Interactive prototype and functional testing |
+| [426c27e](https://github.com/shukeicheung411-stack/A2_3197106/commit/426c27e) | Verification feedback and information accessibility refinements |
+| [db289d2](https://github.com/shukeicheung411-stack/A2_3197106/commit/db289d2) | Interaction storyboards and final architecture |
 
-Manual testing included verification
-requirements, decision controls, feedback
-and session summary consistency.
+Manual testing included verification requirements, decision controls, feedback and session summary consistency. A complete Mode C walkthrough recorded six decisions, three mandatory verifications and one voluntary verification. The summary was checked against the individual case results.
 
-Two interface refinements addressed
-verification state visibility and access
-to case context during policy review.
+Two interface refinements addressed verification state visibility and access to case context during policy review. Dynamic status feedback was added to distinguish selecting rules from completing verification. A compact policy layout and expandable case context were added to reduce the need to scroll.
 
-Detailed observations, checks and limitations
-are recorded in TESTING.md.
+Detailed observations, checks and limitations are recorded in [TESTING.md](TESTING.md).
 
 ## 9. AI Assistance and Authorship
 
-Generative AI was used to assist with design
-exploration, code generation, debugging,
-documentation and visual illustrations.
+ChatGPT assisted with design exploration, code generation, debugging, documentation and visual illustrations. AI-assisted materials include the prototype code, system architecture diagram and fictional storyboards.
 
-The developer reviewed design proposals,
-selected the project scope, created and
-modified local project files, performed
-manual functional testing and maintained
-the Git development history.
+I selected the project scope, chose the three identity categories and requested that the moderation rules be based on existing platform policies. I created and modified the local project files, performed manual functional testing and maintained the Git development history.
 
-AI-assisted outputs were reviewed against
-the project requirements and available
-prototype evidence.
+For example, I checked the Mode C summary against the six case results and reviewed the revised verification feedback in the browser. I provided prototype screenshots and reviewed the storyboard scenarios against the implemented interaction paths.
 
-The moderation policy is adapted from
-external policy sources documented in
-POLICY.md.
+The moderation rules were adapted from external policy sources documented in [POLICY.md](POLICY.md). The prototype uses predefined simulated AI outputs rather than a live AI service. The test walkthroughs were developer checks, not independent participant evaluations.
 
 ## 10. Limitations
 
